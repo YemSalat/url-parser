@@ -1,7 +1,7 @@
 import url from 'url'
 import validUrl from 'valid-url'
 import queryString from 'query-string'
-import { pick, assign } from 'lodash'
+import { pick, assign, isObject } from 'lodash'
 import { allowedUrlProps } from './constants'
 
 export function parseUrl (urlString, options = {}) {
@@ -30,7 +30,7 @@ export function updateUrl (urlString, params = {}, options = {}) {
 }
 
 export function updateUrlQuery (urlString, query = {}, options = {}) {
-  if (!query || !typeof query === 'object') {
+  if (!isObject(query)) {
     throw new Error('Query must be an object')
   }
   return updateUrl(urlString, { query: query }, options)

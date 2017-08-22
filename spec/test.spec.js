@@ -97,3 +97,12 @@ test('parseUrl should throw error on incorrect url', (t) => {
   }
   t.end()
 })
+
+test('updateUrlQuery should throw error when provided query is not an object', (t) => {
+  try {
+    updateUrlQuery('http://test.com', 'string')
+  } catch (e) {
+    t.equal(e.message, 'Query must be an object', 'Throws an error when invalid query is provided')
+  }
+  t.end()
+})
