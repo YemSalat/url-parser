@@ -1,24 +1,23 @@
 {
-  "name": "node-babel-boilerplate",
-  "version": "1.0.1",
-  "description": "Lightweight node + babel6 + tape boilerplate",
+  "name": "url-parser",
+  "version": "1.0.0",
+  "description": "Url parsing lib w/ handy methods",
   "license": "MIT",
-  "repository": "revolunet/node-babel-boilerplate",
+  "repository": "YemSalat/url-parser",
   "author": {
-    "name": "Julien Bouquillon",
-    "email": "julien@bouquillon.com",
-    "url": "http://github.com/revolunet"
+    "name": "Konstantin Levin",
+    "email": "yemsalat.me@gmail.com",
+    "url": "http://github.com/YemSalat"
   },
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=4"
   },
   "scripts": {
-    "readme": "node ./node_modules/.bin/node-readme",
     "test": "./node_modules/.bin/babel-tape-runner ./spec/**/*.spec.js | ./node_modules/.bin/tap-spec",
     "zuul": "./node_modules/.bin/zuul --local --open -- spec/**/*.spec.js",
-    "build": "npm run test && npm run readme && ./node_modules/.bin/babel -d ./dist ./src",
-    "publish": "git push && git push --tags && npm publish",
-    "lint": "./node_modules/.bin/standard 'src/**/*.js' 'spec/**/*.js'"
+    "lint": "./node_modules/.bin/standard 'src/**/*.js' 'spec/**/*.js'",
+    "build": "npm run test && ./node_modules/.bin/babel -d ./dist ./src",
+    "publish": "git push && git push --tags && npm publish"
   },
   "main": "dist/index.js",
   "keywords": [
@@ -39,13 +38,15 @@
     "babel-preset-es2015": "*",
     "babel-tape-runner": "*",
     "babelify": "7.2.0",
-    "node-readme": "^0.1.8",
     "standard": "^10.0.3",
     "tap-spec": "^4.0.2",
     "tape": "^4.0.0",
     "zuul": "^3.8.0"
   },
   "dependencies": {
-    "url": "^0.11.0"
+    "lodash": "^4.17.4",
+    "query-string": "^5.0.0",
+    "url": "^0.11.0",
+    "valid-url": "^1.0.9"
   }
 }
