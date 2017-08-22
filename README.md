@@ -6,16 +6,17 @@ Url parsing lib w/ handy methods
 Parses url to an object containing its properties
 
 `updateUrl(urlString, params, options)`
-Updates the source url with provided params
-(should be an object similar to what is returned from parseUrl method
+Updates the source url with provided params;
+ (should be an object similar to what is returned from parseUrl method
 
 `updateUrlQuery(urlString, query, options)`
-Will update the url query string with the values provided
-In order to remove a parameter - supply it as undefined, e.g. `{ foo: undefined }`
+Will update the url query string with the values provided;
+ In order to remove a parameter - supply it as undefined, e.g. `{ foo: undefined }`;
+ For list of options see `query-string` package docs
 
 `updateUrlHash(urlString, query, options)`
-Will update the url hash with the value provided
-Provide an empty string to remove the hash
+Will update the url hash with the value provided;
+ Use an empty string to remove the hash
 
 `serializeUrl(params)`
 Create url from object with url props
