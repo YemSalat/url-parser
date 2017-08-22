@@ -4,6 +4,10 @@ import queryString from 'query-string'
 import { pick, assign } from 'lodash'
 import { allowedUrlProps } from './constants'
 
+export function serializeUrl (params) {
+  return url.format(params)
+}
+
 export function parseUrl (urlString, options = {}) {
   let urlStringForParsing = urlString
   // if allowNoProtocol is on - prepend string with 'http://'

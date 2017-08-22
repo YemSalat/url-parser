@@ -9,6 +9,9 @@ Parses url to an object containing its properties
 Updates the source url with provided params
 (should be an object similar to what is returned from parseUrl method
 
+`serializeUrl(params)`
+Create url from object with url props
+
 You may also update the query string, this is done w/ query-string, so all of its rules and options apply
 
 ### Options
