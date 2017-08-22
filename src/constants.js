@@ -8,6 +8,5 @@ export const allowedUrlProps = [
   'pathname',
   'search',
   'query',
-  'search',
   'hash'
 ]
