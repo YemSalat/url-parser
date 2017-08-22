@@ -15,6 +15,7 @@ In order to remove a parameter - supply it as undefined, e.g. `{ foo: undefined 
 
 `updateUrlHash(urlString, query, options)`
 Will update the url hash with the value provided
+Provide an empty string to remove the hash
 
 `serializeUrl(params)`
 Create url from object with url props

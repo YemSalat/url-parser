@@ -66,8 +66,10 @@ test('should update query correctly', (t) => {
 test('should update hash correctly', (t) => {
   testUrl = 'http://hello.com/world#test'
   updatedUrl = updateUrlHash(testUrl, '#hello')
-
   t.equal(updatedUrl, 'http://hello.com/world#hello', 'updated url has new hash')
+
+  updatedUrl = updateUrlHash(testUrl, '')
+  t.equal(updatedUrl, 'http://hello.com/world', 'removed hash from url')
   t.end()
 })
 
