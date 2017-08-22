@@ -1,5 +1,11 @@
 import test from 'tape'
-import { parseUrl, updateUrl, serializeUrl } from '../src'
+import {
+  parseUrl,
+  updateUrl,
+  updateUrlQuery,
+  updateUrlHash,
+  serializeUrl
+} from '../src'
 
 let testUrl, parsedUrl, updatedUrl
 
@@ -35,17 +41,33 @@ test('should update url correctly', (t) => {
 
 test('should add query params to url correctly', (t) => {
   testUrl = 'http://hello.com/world?foo=bar'
-  updatedUrl = updateUrl(testUrl, { query: { a: 'b' } })
+  updatedUrl = updateUrl(testUrl, { protocol: 'https', query: { a: 'b' } })
 
-  t.equal(updatedUrl, 'http://hello.com/world?a=b&foo=bar', 'updated url has new params in query string')
+  t.equal(updatedUrl, 'https://hello.com/world?a=b&foo=bar', 'updated url has new params in query string')
   t.end()
 })
 
 test('should remove query params that are set undefined correctly', (t) => {
   testUrl = 'http://hello.com/world?a=b&foo=bar'
-  updatedUrl = updateUrl(testUrl, { query: { a: undefined } })
+  updatedUrl = updateUrl(testUrl, { protocol: 'https', query: { a: undefined } })
 
-  t.equal(updatedUrl, 'http://hello.com/world?foo=bar', 'updated url has new params in query string')
+  t.equal(updatedUrl, 'https://hello.com/world?foo=bar', 'updated url has params removed in query string')
+  t.end()
+})
+
+test('should update query correctly', (t) => {
+  testUrl = 'http://hello.com/world?a=b&foo=bar'
+  updatedUrl = updateUrlQuery(testUrl, { a: undefined, foo: 'foo' })
+
+  t.equal(updatedUrl, 'http://hello.com/world?foo=foo', 'updated url has new params in query string')
+  t.end()
+})
+
+test('should update hash correctly', (t) => {
+  testUrl = 'http://hello.com/world#test'
+  updatedUrl = updateUrlHash(testUrl, '#hello')
+
+  t.equal(updatedUrl, 'http://hello.com/world#hello', 'updated url has new hash')
   t.end()
 })
 

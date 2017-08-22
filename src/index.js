@@ -4,10 +4,6 @@ import queryString from 'query-string'
 import { pick, assign } from 'lodash'
 import { allowedUrlProps } from './constants'
 
-export function serializeUrl (params) {
-  return url.format(params)
-}
-
 export function parseUrl (urlString, options = {}) {
   let urlStringForParsing = urlString
   // if allowNoProtocol is on - prepend string with 'http://'
@@ -20,7 +16,7 @@ export function parseUrl (urlString, options = {}) {
   return url.parse(urlStringForParsing, true, true)
 }
 
-export function updateUrl (urlString, params, options = {}) {
+export function updateUrl (urlString, params = {}, options = {}) {
   const parsedUrl = parseUrl(urlString, options)
   const filteredParams = pick(params, allowedUrlProps)
   // update query params
@@ -29,4 +25,18 @@ export function updateUrl (urlString, params, options = {}) {
     filteredParams.search = '?' + queryString.stringify(queryParams, options)
   }
   return url.format(assign(parsedUrl, filteredParams))
+}
+
+export function updateUrlQuery (urlString, query = {}, options = {}) {
+  if (!query || !typeof query === 'object') throw new Error('Query must be an object')
+  return updateUrl(urlString, { query: query }, options)
+}
+
+export function updateUrlHash (urlString, hash = '', options = {}) {
+  hash = hash.toString()
+  return updateUrl(urlString, { hash: hash }, options)
+}
+
+export function serializeUrl (params = {}) {
+  return url.format(params)
 }
