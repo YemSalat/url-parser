@@ -39,7 +39,6 @@
     "babel-preset-es2015": "*",
     "babel-tape-runner": "*",
     "babelify": "7.2.0",
-    "eslint": "*",
     "node-readme": "^0.1.8",
     "standard": "^10.0.3",
     "tap-spec": "^4.0.2",
