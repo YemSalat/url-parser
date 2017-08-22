@@ -16,12 +16,13 @@ export function parseUrl (urlString, options = {}) {
   return url.parse(urlStringForParsing, true, true)
 }
 
-export function updateUrl (urlString, params, options) {
+export function updateUrl (urlString, params, options = {}) {
   const parsedUrl = parseUrl(urlString, options)
   const filteredParams = pick(params, allowedUrlProps)
+  // update query params
+  if (filteredParams.query) {
+    const queryParams = assign(parsedUrl.query, filteredParams.query)
+    filteredParams.search = '?' + queryString.stringify(queryParams, options)
+  }
   return url.format(assign(parsedUrl, filteredParams))
 }
-
-console.log(parseUrl('https://hello.com:8080/a/b/c?foo=bar#hash'))
-console.log(updateUrl('https://hello.com:8080/a/b/c?foo=bar#hash', {search: '?a=1'}))
-console.log(updateUrl('https://hello.com:8080/a/b/c?foo=bar#hash', {query: {a:25}}))

@@ -33,6 +33,22 @@ test('should update url correctly', (t) => {
   t.end()
 })
 
+test('should add query params to url correctly', (t) => {
+  testUrl = 'http://hello.com/world?foo=bar'
+  updatedUrl = updateUrl(testUrl, { query: { a: 'b' } })
+
+  t.equal(updatedUrl, 'http://hello.com/world?a=b&foo=bar', 'updated url has new params in query string')
+  t.end()
+})
+
+test('should remove query params that are set undefined correctly', (t) => {
+  testUrl = 'http://hello.com/world?a=b&foo=bar'
+  updatedUrl = updateUrl(testUrl, { query: { a: undefined } })
+
+  t.equal(updatedUrl, 'http://hello.com/world?foo=bar', 'updated url has new params in query string')
+  t.end()
+})
+
 test('should throw error on incorrect url', (t) => {
   testUrl = '{incorrect url}'
   try {
