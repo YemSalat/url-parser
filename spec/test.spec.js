@@ -84,7 +84,14 @@ test('should serialize url with query params correctly', (t) => {
   t.end()
 })
 
-test('should throw error on incorrect url', (t) => {
+test('should serialize url wit no params to empty string', (t) => {
+  testUrl = serializeUrl()
+
+  t.equal(testUrl, '', 'correctly serialized to empty string')
+  t.end()
+})
+
+test('parseUrl should throw error on incorrect url', (t) => {
   testUrl = '{incorrect url}'
   try {
     parseUrl(testUrl)
