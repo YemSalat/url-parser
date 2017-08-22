@@ -11,6 +11,7 @@ Updates the source url with provided params
 
 `updateUrlQuery(urlString, query, options)`
 Will update the url query string with the values provided
+In order to remove a parameter - supply it as undefined, e.g. `{ foo: undefined }`
 
 `updateUrlHash(urlString, query, options)`
 Will update the url hash with the value provided
