@@ -81,14 +81,9 @@ test('should serialize url with query params correctly', (t) => {
     query: { foo: 'bar' }
   }
   testUrl = serializeUrl(params)
-
   t.equal(testUrl, 'https://hello.com/a/b?foo=bar', 'correctly serialized path and query')
-  t.end()
-})
 
-test('should serialize url wit no params to empty string', (t) => {
   testUrl = serializeUrl()
-
   t.equal(testUrl, '', 'correctly serialized to empty string')
   t.end()
 })
