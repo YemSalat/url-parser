@@ -21,8 +21,6 @@ Will update the url hash with the value provided;
 `serializeUrl(params)`
 Create url from object with url props
 
-You may also update the query string, this is done w/ query-string, so all of its rules and options apply
-
 ### Options
 `allowNoProtocol` - allows urls w/o specified protocol to be parsed
 All options for `query-string` package are also supported for updateUrl method
