@@ -12,7 +12,9 @@ export function parseUrl (urlString, options = {}) {
       urlStringForParsing = `http://${urlStringForParsing}`
     }
   }
-  if (!validUrl.isUri(urlStringForParsing)) throw new Error(`Invalid url: ${urlString.toString()}`)
+  if (!validUrl.isUri(urlStringForParsing)) {
+    throw new Error(`Invalid url: ${urlString.toString()}`)
+  }
   return url.parse(urlStringForParsing, true, true)
 }
 
@@ -28,7 +30,9 @@ export function updateUrl (urlString, params = {}, options = {}) {
 }
 
 export function updateUrlQuery (urlString, query = {}, options = {}) {
-  if (!query || !typeof query === 'object') throw new Error('Query must be an object')
+  if (!query || !typeof query === 'object') {
+    throw new Error('Query must be an object')
+  }
   return updateUrl(urlString, { query: query }, options)
 }
 
