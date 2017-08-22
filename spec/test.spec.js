@@ -1,5 +1,5 @@
 import test from 'tape'
-import { parseUrl, updateUrl } from '../src'
+import { parseUrl, updateUrl, serializeUrl } from '../src'
 
 let testUrl, parsedUrl, updatedUrl
 
@@ -46,6 +46,19 @@ test('should remove query params that are set undefined correctly', (t) => {
   updatedUrl = updateUrl(testUrl, { query: { a: undefined } })
 
   t.equal(updatedUrl, 'http://hello.com/world?foo=bar', 'updated url has new params in query string')
+  t.end()
+})
+
+test('should serialize url with query params correctly', (t) => {
+  const params = {
+    protocol: 'https',
+    host: 'hello.com',
+    pathname: '/a/b',
+    query: { foo: 'bar' }
+  }
+  testUrl = serializeUrl(params)
+
+  t.equal(testUrl, 'https://hello.com/a/b?foo=bar', 'correctly serialized path and query')
   t.end()
 })
 
