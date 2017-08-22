@@ -34,11 +34,11 @@ All options for `query-string` package are also supported for updateUrl method
 
 ## Scripts
 
- - **npm run test** : `./node_modules/.bin/babel-tape-runner ./spec/**/*.spec.js | ./node_modules/.bin/tap-spec`
- - **npm run zuul** : `./node_modules/.bin/zuul --local --open -- spec/**/*.spec.js`
- - **npm run build** : `npm run test && npm run readme && ./node_modules/.bin/babel -d ./dist ./src`
- - **npm run publish** : `git push && git push --tags && npm publish`
- - **npm run lint** : `./node_modules/.bin/standard 'src/**/*.js' 'spec/**/*.js'`
+ - **npm run test**
+ - **npm run zuul**
+ - **npm run build**
+ - **npm run publish**
+ - **npm run lint**
 
  [![JavaScript Style Guide](https://cdn.rawgit.com/standard/standard/master/badge.svg)](https://github.com/standard/standard)
 
