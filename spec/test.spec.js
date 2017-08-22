@@ -1,7 +1,7 @@
 import test from 'tape'
 import { parseUrl, updateUrl } from '../src'
 
-let testUrl, parsedUrl, updatedUrl;
+let testUrl, parsedUrl, updatedUrl
 
 test('should correctly parse url', (t) => {
   testUrl = 'https://hello.com:8080/a/b/c?foo=bar#hash'

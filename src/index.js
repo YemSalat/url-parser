@@ -8,11 +8,11 @@ export function parseUrl (urlString, options = {}) {
   let urlStringForParsing = urlString
   // if allowNoProtocol is on - prepend string with 'http://'
   if (options.allowNoProtocol) {
-    if (! /^[a-z]+\:\/\//i.test(urlStringForParsing)) {
+    if (!/^[a-z]+:\/\//i.test(urlStringForParsing)) {
       urlStringForParsing = `http://${urlStringForParsing}`
     }
   }
-  if (! validUrl.isUri(urlStringForParsing)) throw new Error(`Invalid url: ${urlString.toString()}`)
+  if (!validUrl.isUri(urlStringForParsing)) throw new Error(`Invalid url: ${urlString.toString()}`)
   return url.parse(urlStringForParsing, true, true)
 }
 

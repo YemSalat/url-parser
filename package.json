@@ -16,7 +16,7 @@
     "test": "./node_modules/.bin/babel-tape-runner ./spec/**/*.spec.js | ./node_modules/.bin/tap-spec",
     "zuul": "./node_modules/.bin/zuul --local --open -- spec/**/*.spec.js",
     "lint": "./node_modules/.bin/standard 'src/**/*.js' 'spec/**/*.js'",
-    "build": "npm run test && ./node_modules/.bin/babel -d ./dist ./src",
+    "build": "npm run test && npm run lint && ./node_modules/.bin/babel -d ./dist ./src",
     "publish": "git push && git push --tags && npm publish"
   },
   "main": "dist/index.js",
