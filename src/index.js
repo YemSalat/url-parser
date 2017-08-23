@@ -33,12 +33,12 @@ export function updateUrlQuery (urlString, query = {}, options = {}) {
   if (!isObject(query)) {
     throw new Error('Query must be an object')
   }
-  return updateUrl(urlString, { query: query }, options)
+  return updateUrl(urlString, { query }, options)
 }
 
 export function updateUrlHash (urlString, hash = '', options = {}) {
   hash = hash.toString()
-  return updateUrl(urlString, { hash: hash }, options)
+  return updateUrl(urlString, { hash }, options)
 }
 
 export function serializeUrl (params = {}) {
